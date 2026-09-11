@@ -159,11 +159,15 @@ app.register(fastifyStatic, {
   });
 });
 
-app.register(fastifyStatic, {
-  root: fileURLToPath(new URL('../views/dist/archive/src', import.meta.url)),
-  prefix: serverUrl.pathname + 'games/',
-  decorateReply: false,
-});
+const gamesRoot = fileURLToPath(
+  new URL('../views/dist/archive/src', import.meta.url)
+);
+if (existsSync(gamesRoot))
+  app.register(fastifyStatic, {
+    root: gamesRoot,
+    prefix: serverUrl.pathname + 'games/',
+    decorateReply: false,
+  });
 
 ['sw.js', 'sw-blacklist.js'].forEach((swFile) => {
   const distName = flatAltPaths['files/' + swFile] || swFile;

@@ -206,8 +206,12 @@ commands: for (let i = 2; i < process.argv.length; i++)
         compile('./views/' + path, '', path + '/', './views/' + path, true);
       }
 
-      mkdirSync('./views/dist-new/archive');
-      compile('./views/archive', '', 'archive/', './views/archive', false);
+      if (existsSync('./views/archive')) {
+        mkdirSync('./views/dist-new/archive');
+        compile('./views/archive', '', 'archive/', './views/archive', false);
+      } else {
+        console.warn('[Build] Games archive not found; skipping archive assets.');
+      }
 
       // Combine scripts from the corresponding node modules into the same
       // dist-generated directories for compiling, and avoid overwriting files.
