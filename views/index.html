@@ -13,7 +13,7 @@
     <meta name="application-name" content="Invisible" />
     <link rel="canonical" href="https://invisiproxy.com/" />
     }}
-    <title>Free Science Fiction Books | Invisible</title>
+    <title>Invisible | Free Web Proxy - Bypass Filters & Access Blocked Sites</title>
     {{ifSEO}}{{
     <meta
       name="description"
@@ -60,7 +60,7 @@
     <meta name="msapplication-TileColor" content="#b4213b" />
     <meta
       name="msapplication-TileImage"
-      content="/workspaces/Science-Fiction-Books/InvisibleIcon.png"
+      content="{{route}}{{assets/ico/InvisibleIcon.png}}"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
@@ -704,7 +704,7 @@
                 <strong>{{mask}}{{Invisible}}</strong>
                 {{mask}}{{thrives due to the dedicated efforts of our amazing
                 contributors. As an open-source project,}}
-                <strong>{{mask}}{{InvisiLTS}}</strong> {{mask}}{{relies on the
+                <strong>{{mask}}{{Invisible LTS}}</strong> {{mask}}{{relies on the
                 collective skills and passion of its community to drive
                 continuous improvement and deliver the best experience for all
                 users.}}
@@ -815,20 +815,5 @@
     {{inline}}{{
     <script src="{{route}}{{assets/js/card.js}}{{inline}}"></script>
     }}
-      <script>
-
-        window.addEventListener('beforeunload', (event) => {
-
-            // Cancel the event to trigger the standard browser confirmation dialog
-
-            event.preventDefault();
-
-            // Required for older browser compatibility
-
-            event.returnValue = '';
-
-        });
-
-    </script>
 </body>
 </html>

@@ -63,16 +63,6 @@
     <ul>
       <li>
         <a
-          >{{mask}}{{Font Awesome}}
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="footerlist">
-    <h3>{{mask}}{{Transports}}</h3>
-    <ul>
-      <li>
-        <a
           target="_blank"
           rel="noopener noreferrer"
           href="{{route}}{{/github/epoxy}}"
@@ -214,19 +204,3 @@
 </div>
 <p class="copyright">{{mask}}{{Invisible &copy; 2020-2026}}</p>
 <div id="modded-build-label" aria-label="Build information"></div>
-
-    <script>
-
-        window.addEventListener('beforeunload', (event) => {
-
-            // Cancel the event to trigger the standard browser confirmation dialog
-
-            event.preventDefault();
-
-            // Required for older browser compatibility
-
-            event.returnValue = '';
-
-        });
-
-    </script>

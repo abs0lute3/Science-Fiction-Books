@@ -2,11 +2,24 @@ version: "3.9"
 
 services:
   invisible:
-    image: quiteafancyemerald/invisiproxy:7.0.2
+    image: quiteafancyemerald/invisiproxy:7.1.0
     build: .
     container_name: invisible
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"
     restart: unless-stopped
     environment:
       NODE_ENV: production
+  # Recommended front door: NGINX (NOT Caddy — mrrowisp needs loopback-safe Upgrade handling).
+  # Uncomment to serve via NGINX using ./nginx.conf:
+  # nginx:
+  #   image: nginx:stable-alpine
+  #   container_name: invisible-nginx
+  #   depends_on:
+  #     - invisible
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+  #   restart: unless-stopped

@@ -138,7 +138,9 @@ const storageId = '{{hu-lts}}-storage',
       'Inbox - Gmail \n https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico',
   }),
   defaultTheme = 'dark',
-  themeNames = ['light', 'nord', 'amethyst', 'crystal', 'purple-plasma', 'black-hole'],
+  themeNames = ['light', 'nord', 'midnight', 'aurora', 'purple-plasma', 'black-hole', 'galaxy'],
+  // Legacy theme names from older builds map to their clean replacements.
+  legacyThemeMap = Object.freeze({ amethyst: 'midnight', crystal: 'aurora' }),
   // Choose the default transport mode, for proxying, based on the browser.
   // Firefox is not supported by epoxy yet, which is why this is implemented.
   defaultMode = '{{epoxy}}',
@@ -212,7 +214,7 @@ if (document.getElementById('csel')) {
       //    Allow users to reset the favicon to default if nothing is entered.
       focusElement.focus();
       removeStorage('Icon');
-      pageIcon('/workspaces/Science-Fiction-Books/InvisibleIcon.png');
+      pageIcon('{{route}}{{assets/ico/InvisibleIcon.png}}');
     }
   });
 
@@ -270,8 +272,17 @@ if (document.getElementById('csel')) {
     e.preventDefault();
     const [name, url] = e.target.querySelectorAll('input');
     if (!name.value || !url.value) return;
+    let cleanUrl = url.value.trim();
+    // Normalize bookmarks: prepend https:// when the scheme is missing.
+    if (!/^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(cleanUrl)) cleanUrl = 'https://' + cleanUrl;
+    try {
+      // Validate before storing; invalid URLs are ignored.
+      new URL(cleanUrl);
+    } catch {
+      return;
+    }
     const bookmarks = readStorage('Bookmarks') || [];
-    bookmarks.push({ name: name.value.trim(), url: url.value.trim() });
+    bookmarks.push({ name: name.value.trim(), url: cleanUrl });
     setStorage('Bookmarks', bookmarks.slice(-30));
     name.value = '';
     url.value = '';
@@ -309,14 +320,17 @@ if (document.getElementById('csel')) {
   attachClassEventListener('theme-list', 'change', (e) => {
     if (e.target.checked) {
       const themeList = e.target.closest('.theme-list');
-      themeNames.forEach((theme) =>
+      themeNames.concat(Object.keys(legacyThemeMap)).forEach((theme) =>
         document.documentElement.classList.remove(theme)
       );
-      if (e.target.value === defaultTheme) {
+      let themeValue = e.target.value;
+      // Migrate legacy names to their clean replacements.
+      if (legacyThemeMap[themeValue]) themeValue = legacyThemeMap[themeValue];
+      if (themeValue === defaultTheme) {
         removeStorage('Theme');
       } else {
-        setStorage('Theme', e.target.value);
-        document.documentElement.classList.add(e.target.value);
+        setStorage('Theme', themeValue);
+        document.documentElement.classList.add(themeValue);
       }
       (async () => {
         const shouldLoad = await new Promise((resolve) => {
@@ -337,6 +351,14 @@ if (document.getElementById('csel')) {
         if (!shouldLoad) return;
         await loadFull(tsParticles);
         const styles = getComputedStyle(document.documentElement);
+        const themeNow = themeValue || defaultTheme;
+        // Per-theme particle personalities: plasma = fast electric web,
+        // black-hole = slow sparse dust, galaxy = chill twinkling stars.
+        const themeTuning = {
+          'purple-plasma': { count: 130, twinkle: false, linkDist: 130, linkOp: 0.5 },
+          'black-hole': { count: 90, twinkle: false, linkDist: 170, linkOp: 0.3 },
+          galaxy: { count: 160, twinkle: true, linkDist: 110, linkOp: 0.35 },
+        }[themeNow] || { count: 100, twinkle: false, linkDist: 150, linkOp: 0.4 };
 
         await tsParticles.load({
           id: 'background',
@@ -354,9 +376,13 @@ if (document.getElementById('csel')) {
             fpsLimit: 60,
             interactivity: {
               events: {
+                onHover: { enable: true, mode: 'repulse' },
                 resize: {
                   enable: true,
                 },
+              },
+              modes: {
+                repulse: { distance: 90, duration: 0.4 },
               },
             },
             particles: {
@@ -376,7 +402,7 @@ if (document.getElementById('csel')) {
                   enable: true,
                   area: 800,
                 },
-                value: 100,
+                value: themeTuning.count,
               },
               opacity: {
                 value: {
@@ -387,6 +413,13 @@ if (document.getElementById('csel')) {
                   enable: true,
                   speed: parseFloat(styles.getPropertyValue('--particles-op-spd')) || 0.3,
                   sync: false,
+                },
+              },
+              twinkle: {
+                particles: {
+                  enable: themeTuning.twinkle,
+                  frequency: 0.06,
+                  opacity: 0.9,
                 },
               },
               shape: {
@@ -402,9 +435,9 @@ if (document.getElementById('csel')) {
               },
               links: {
                 enable: true,
-                distance: 150,
+                distance: themeTuning.linkDist,
                 color: styles.getPropertyValue('--particles-links') || '#ffffff',
-                opacity: parseFloat(styles.getPropertyValue('--particles-links-opacity')) || 0.4,
+                opacity: parseFloat(styles.getPropertyValue('--particles-links-opacity')) || themeTuning.linkOp,
                 width: 1,
               },
             },
@@ -547,6 +580,11 @@ useStorageArgs('Icon', (s) => {
 });
 
 useStorageArgs('Theme', (s) => {
+  // Migrate legacy stored themes to their clean replacements.
+  if (s && legacyThemeMap[s]) {
+    s = legacyThemeMap[s];
+    setStorage('Theme', s);
+  }
   const themeList = document.getElementsByClassName('theme-list');
   classUpdateHandler(
     themeList,
@@ -563,7 +601,9 @@ useStorageArgs('SearchEngine', (s) => {
 });
 
 // Load the Wisp transport mode that was last used, or use the default.
+// Firefox gets libcurl by default since Epoxy (WASM TLS) is Chromium-optimized.
 useStorageArgs('Transport', (s) => {
+  if (!s && /firefox/i.test(navigator.userAgent)) s = '{{libcurl}}';
   classUpdateHandler(
     document.getElementsByClassName('{{wisp-transport}}-list'),
     s || defaultMode

@@ -56,7 +56,6 @@ View the <a href="#deploy-InvisiProxy">self-deployment options</a> if you wish t
 | And essentially most sites! | Built for intensive production loads and ease of setup                                                                                |
 
 <img src="https://raw.githubusercontent.com/QuiteAFancyEmerald/InvisiProxy/master/views/assets/img/preview/invisi-v6.9.6-preview.png"></img>
-# Note to QuiteAFancyEmerald i added an updated image in the preview folder its called invisi-v7.0.2-preview.png. make sure to delete this message
 <img src="https://raw.githubusercontent.com/QuiteAFancyEmerald/InvisiProxy/master/views/assets/img/preview/invisi-v6.9.7-preview-settings.png"></img>
 
 ## Deploy Invisible

@@ -1,13 +1,13 @@
-This will be our nonexhaustive todo list for Invisible LTS v6.x.x and above. Release for production will be v8.x.x and above.
+This will be our nonexhaustive todo list for Invisible LTS v7.x.x and above. Release for production will be v8.x.x and above.
 
 ## Priority
 
-- [ ] Make Invisible work on Firefox (requires downloading malware to test :()
-- [ ] Fix abnormal search handling
+- [x] Make Invisible work on Firefox (no malware needed — done via UA-sniff default to libcurl) - done v7.1
+- [x] Fix abnormal search handling (trim, strip pasted quotes, port/localhost/IP aware) - done v7.1
 - [ ] Class managling and DOM masquerading functionality to Scramjet (or stealth window) 
 - [ ] Font obfuscation middleware
 - [ ] Implement multi-lang support!
-- [ ] Include default NGINX configuration for Docker Compose (will become the recommended method of hosting)
+- [x] Include default NGINX configuration for Docker Compose (will become the recommended method of hosting) - done v7.1 (nginx.conf + compose service)
 - [ ] SolidJS rewrite
 
 #### Known Regressions
@@ -15,10 +15,10 @@ This will be our nonexhaustive todo list for Invisible LTS v6.x.x and above. Rel
 - Clean epoxy errors if unreleated to ProxyTransports
 
 ## Proxy/Site Functionality
-- [ ] Improve mobile support (epoxy should be the default; fix UI bugs)
+- [x] Improve mobile support (omnibar now compacts instead of disappearing; epoxy stays default on Chromium, libcurl auto-default on Firefox) - done v7.1
 - [ ] Implement sandboxing techniques to prevent new tab leaks
 - [ ] Improve onboarding expierence 
-- [ ] Add bookmarks menu (source wise already present pretty much)
+- [x] Add bookmarks menu (source wise already present pretty much) - done (validation + normalization added v7.1)
 - [ ] Add Chii + ensuring users can access devtools while browsing; or utilize Scramjet playground instead - partial
 - [ ] Allow for custom SOCK5 proxy layering (HTTP and SOCKS4 scheme as well)
 - [ ] Add selector for default proxy; behavior is upon clicking on logo in omnibox it will direct back to the selected proxy in Settings

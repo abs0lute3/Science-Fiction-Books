@@ -135,6 +135,14 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
   --particles-sz-spd: 0.3;
 }
 
+/* ===============================================================
+   Invisible LTS v7.1 — Cinematic theme engine
+   Photo-backed backdrops (views/assets/img/bg/) with slow Ken Burns
+   motion + tsParticles starfields. Midnight / Aurora are clean,
+   calm, professional daily drivers.
+   Legacy aliases: amethyst -> midnight, crystal -> aurora.
+   =============================================================== */
+
 .nord:root {
   --nord0: #1d232a;
   --nord0m1: #2e3440;
@@ -183,162 +191,210 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
   --dark: #303030;
   --dark2: #22262f;
   --fancy-dark: rgba(46, 52, 64, 0.2);
+  --radio-accent: var(--nord8);
+  --hero-grid-bg: var(--fancy-dark);
+  --glowshadow1: #88c0d0;
+  --glowshadow2: #5e81ac;
+  --particles-bg: #1d232a;
+  --particles-color: #88c0d0;
+  --particles-links: #88c0d033;
+  --particles-mv-spd: 0.3;
+  --particles-op-max: 0.35;
+  --particles-op-spd: 0.25;
+  --particles-sz-spd: 0.3;
 }
 
+/* ---------- CLEAN: Midnight (calm deep-navy daily driver) ---------- */
+.midnight:root,
 .amethyst:root {
-  --nord0: #120c1d;
-  --nord0m1: #211631;
-  --nord0m2: #2c1c40;
-  --nord0m3: #39244f;
-  --nord1: #50336b;
-  --nord2: #664582;
-  --nord3: #8c62a8;
-  --nord4: #eadcff;
-  --nord5: #f4edff;
-  --nord6: #fffaff;
-  --nord7: #d49cff;
-  --nord8: #c477ff;
-  --nord9: #a953e8;
-  --nord10: #8c42c4;
-  --nord11: #ff7abf;
-  --radio-accent: #d49cff;
-  --hero-grid-bg: rgba(57, 36, 79, 0.45);
-  --settings-bg: rgba(33, 22, 49, 0.82);
-  --glowshadow1: #a953e8;
-  --glowshadow2: #ff7abf;
-  --particles-bg: #120c1d;
-  --particles-color: #d49cff;
-  --particles-links: #a953e855;
-  --particles-mv-spd: 0.35;
-  --particles-op-max: 0.45;
-  --particles-op-spd: 0.3;
-  --particles-sz-spd: 0.4;
-}
-
-.crystal:root {
-  --nord0: #07151b;
-  --nord0m1: #0e2730;
-  --nord0m2: #153742;
-  --nord0m3: #1d4854;
-  --nord1: #296273;
-  --nord2: #3b8090;
-  --nord3: #63a9b5;
-  --nord4: #c9f5f3;
-  --nord5: #e2ffff;
-  --nord6: #f5ffff;
-  --nord7: #8fe5e1;
-  --nord8: #62d1d4;
-  --nord9: #45aebd;
-  --nord10: #2c7f96;
-  --nord11: #ff8f9d;
-  --radio-accent: #8fe5e1;
-  --hero-grid-bg: rgba(14, 39, 48, 0.45);
-  --settings-bg: rgba(14, 39, 48, 0.82);
-  --glowshadow1: #62d1d4;
-  --glowshadow2: #c9f5f3;
-  --particles-bg: #07151b;
-  --particles-color: #8fe5e1;
-  --particles-links: #62d1d455;
-  --particles-mv-spd: 0.25;
+  --nord0: #080d18;
+  --nord0m1: #0e1626;
+  --nord0m2: #142034;
+  --nord0m3: #1b2c46;
+  --nord1: #22344f;
+  --nord2: #2c425f;
+  --nord3: #3d5573;
+  --nord4: #d7e3f5;
+  --nord5: #e8f0fc;
+  --nord6: #f5f9ff;
+  --nord7: #7dd3e0;
+  --nord8: #6cb8e8;
+  --nord9: #5b8fd6;
+  --nord10: #4165b8;
+  --nord11: #ff7a90;
+  --radio-accent: #6cb8e8;
+  --hero-grid-bg: rgba(14, 22, 38, 0.55);
+  --settings-bg: rgba(8, 13, 24, 0.88);
+  --glowshadow1: #4d9de0;
+  --glowshadow2: #7dd3e0;
+  --particles-bg: #080d18;
+  --particles-color: #9cc8f5;
+  --particles-links: #5b8fd644;
+  --particles-mv-spd: 0.28;
   --particles-op-max: 0.4;
   --particles-op-spd: 0.25;
   --particles-sz-spd: 0.3;
 }
 
+/* ---------- CLEAN: Aurora (soft teal-mint, low eye-strain) ---------- */
+.aurora:root,
+.crystal:root {
+  --nord0: #061417;
+  --nord0m1: #0b2327;
+  --nord0m2: #113238;
+  --nord0m3: #17434b;
+  --nord1: #1f545c;
+  --nord2: #2a6b74;
+  --nord3: #3f8b90;
+  --nord4: #d2f2ec;
+  --nord5: #e4faf4;
+  --nord6: #f4fffb;
+  --nord7: #8fe5c9;
+  --nord8: #6fd8c8;
+  --nord9: #4cb3b8;
+  --nord10: #2f8598;
+  --nord11: #ff8f9d;
+  --radio-accent: #6fd8c8;
+  --hero-grid-bg: rgba(11, 35, 39, 0.5);
+  --settings-bg: rgba(6, 20, 23, 0.88);
+  --glowshadow1: #3fc1b0;
+  --glowshadow2: #a7f3d0;
+  --particles-bg: #061417;
+  --particles-color: #8fe5c9;
+  --particles-links: #4cb3b844;
+  --particles-mv-spd: 0.24;
+  --particles-op-max: 0.38;
+  --particles-op-spd: 0.22;
+  --particles-sz-spd: 0.28;
+}
+
+/* ---------- Purple Plasma (rebuilt: flowing nebula + filaments) ---------- */
 .purple-plasma:root {
-  --nord0: #090313;
-  --nord0m1: #160622;
-  --nord0m2: #220934;
-  --nord0m3: #341052;
-  --nord1: #531a73;
-  --nord2: #70239a;
-  --nord3: #9343c5;
-  --nord4: #e4c5ff;
-  --nord5: #f2ddff;
-  --nord6: #fff6ff;
+  --nord0: #0a0318;
+  --nord0m1: #150826;
+  --nord0m2: #210b38;
+  --nord0m3: #331354;
+  --nord1: #4d1a72;
+  --nord2: #68239a;
+  --nord3: #8f43c6;
+  --nord4: #e9ccff;
+  --nord5: #f4e2ff;
+  --nord6: #fff8ff;
   --nord7: #dd8cff;
   --nord8: #c95cff;
   --nord9: #a735e8;
   --nord10: #7a20b6;
   --nord11: #ff72d2;
   --radio-accent: #e09aff;
-  --hero-grid-bg: rgba(52, 16, 82, 0.5);
-  --settings-bg: rgba(22, 6, 34, 0.84);
+  --hero-grid-bg: rgba(33, 11, 56, 0.52);
+  --settings-bg: rgba(16, 4, 28, 0.87);
   --glowshadow1: #a735e8;
   --glowshadow2: #ff72d2;
   --particles-bg: transparent;
-  --particles-color: #e09aff;
+  --particles-color: #eda6ff;
   --particles-links: #c95cff66;
-  --particles-mv-spd: 0.55;
-  --particles-op-max: 0.75;
-  --particles-op-spd: 0.45;
-  --particles-sz-spd: 0.5;
+  --particles-mv-spd: 0.6;
+  --particles-op-max: 0.8;
+  --particles-op-spd: 0.5;
+  --particles-sz-spd: 0.55;
 }
 
+/* ---------- Black Hole (rebuilt: tilted disk + photon ring) ---------- */
 .black-hole:root {
-  --nord0: #020207;
-  --nord0m1: #0b0b14;
-  --nord0m2: #151321;
-  --nord0m3: #201b31;
-  --nord1: #352750;
-  --nord2: #513474;
-  --nord3: #7952a8;
-  --nord4: #e2d8ff;
-  --nord5: #f2ecff;
-  --nord6: #fffaff;
-  --nord7: #d6a4ff;
-  --nord8: #bd72ff;
-  --nord9: #9648e5;
-  --nord10: #7131b6;
-  --nord11: #ff916e;
-  --radio-accent: #d6a4ff;
-  --hero-grid-bg: rgba(11, 11, 20, 0.6);
-  --settings-bg: rgba(11, 11, 20, 0.88);
-  --glowshadow1: #9648e5;
-  --glowshadow2: #ff916e;
+  --nord0: #010109;
+  --nord0m1: #080812;
+  --nord0m2: #101020;
+  --nord0m3: #181830;
+  --nord1: #26264a;
+  --nord2: #3a3a68;
+  --nord3: #5a5a96;
+  --nord4: #e0e4ff;
+  --nord5: #eef0ff;
+  --nord6: #fbfbff;
+  --nord7: #a9c6ff;
+  --nord8: #7fa8ff;
+  --nord9: #5b7fe8;
+  --nord10: #3d56b8;
+  --nord11: #ffb37a;
+  --radio-accent: #a9c6ff;
+  --hero-grid-bg: rgba(6, 6, 16, 0.62);
+  --settings-bg: rgba(4, 4, 12, 0.9);
+  --glowshadow1: #5b7fe8;
+  --glowshadow2: #ffb37a;
   --particles-bg: transparent;
-  --particles-color: #d6a4ff;
-  --particles-links: #9648e544;
-  --particles-mv-spd: 0.18;
-  --particles-op-max: 0.35;
-  --particles-op-spd: 0.2;
-  --particles-sz-spd: 0.2;
+  --particles-color: #b9ccff;
+  --particles-links: #5b7fe833;
+  --particles-mv-spd: 0.16;
+  --particles-op-max: 0.5;
+  --particles-op-spd: 0.18;
+  --particles-sz-spd: 0.18;
 }
 
-@keyframes purplePlasmaDrift {
-  from {
-    transform: translate3d(-3%, 2%, 0) scale(1.05) rotate(-2deg);
-  }
-  to {
-    transform: translate3d(3%, -2%, 0) scale(1.12) rotate(2deg);
-  }
+/* ---------- Galaxy (NEW: slow chill spiral, spacy + calm) ---------- */
+.galaxy:root {
+  --nord0: #05070f;
+  --nord0m1: #0b0f1e;
+  --nord0m2: #131a30;
+  --nord0m3: #1c2440;
+  --nord1: #2a3358;
+  --nord2: #3a4570;
+  --nord3: #565f8e;
+  --nord4: #dfe2f5;
+  --nord5: #ece9fb;
+  --nord6: #faf8ff;
+  --nord7: #c9b8ff;
+  --nord8: #a893f5;
+  --nord9: #7f6ce0;
+  --nord10: #5a4cb5;
+  --nord11: #ff9ecf;
+  --radio-accent: #a893f5;
+  --hero-grid-bg: rgba(11, 15, 30, 0.58);
+  --settings-bg: rgba(6, 8, 18, 0.89);
+  --glowshadow1: #7f6ce0;
+  --glowshadow2: #ff9ecf;
+  --particles-bg: transparent;
+  --particles-color: #cfd4ff;
+  --particles-links: #7f6ce044;
+  --particles-mv-spd: 0.2;
+  --particles-op-max: 0.55;
+  --particles-op-spd: 0.3;
+  --particles-sz-spd: 0.25;
 }
 
-@keyframes blackHoleSpin {
-  from {
-    transform: perspective(900px) rotateX(66deg) rotateZ(-4deg) scale(1.08);
-  }
-  to {
-    transform: perspective(900px) rotateX(66deg) rotateZ(356deg) scale(1.08);
-  }
-}
+/* ============ Cinematic backdrop layers (GPU: transform/opacity only) ============ */
 
 .purple-plasma body::before,
-.black-hole body::before {
+.black-hole body::before,
+.galaxy body::before,
+.midnight body::before,
+.aurora body::before {
   content: '';
   position: fixed;
-  inset: -12%;
+  inset: -22%;
   pointer-events: none;
-  z-index: 0;
+  z-index: -3;
   background-repeat: no-repeat;
+  will-change: transform, opacity;
+}
+
+.purple-plasma body::after,
+.black-hole body::after,
+.galaxy body::after,
+.midnight body::after,
+.aurora body::after {
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  z-index: -2;
+  will-change: transform, opacity;
 }
 
 .purple-plasma body,
 .black-hole body,
+.galaxy body,
 .purple-plasma canvas,
 .black-hole canvas,
-.purple-plasma #particles-js,
-.black-hole #particles-js {
+.galaxy canvas {
   background-color: transparent;
 }
 
@@ -347,78 +403,135 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
 .purple-plasma #footer,
 .black-hole #header,
 .black-hole #mainbody,
-.black-hole #footer {
+.black-hole #footer,
+.galaxy #header,
+.galaxy #mainbody,
+.galaxy #footer {
   position: relative;
   z-index: 1;
 }
 
+/* ----- Purple plasma: real nebula photo, slow drift + electric shimmer ----- */
 .purple-plasma body::before {
   background:
-    radial-gradient(ellipse at 17% 56%, rgba(234, 105, 255, 0.94), transparent 13%),
-    radial-gradient(ellipse at 82% 37%, rgba(121, 43, 255, 0.92), transparent 18%),
-    radial-gradient(ellipse at 52% 67%, rgba(194, 31, 255, 0.72), transparent 24%),
-    repeating-conic-gradient(from 20deg at 45% 52%, transparent 0 8deg, rgba(160, 58, 255, 0.44) 9deg 10deg, transparent 11deg 18deg),
-    linear-gradient(115deg, #08000f 0%, #28004b 40%, #0d001b 70%, #210044 100%);
-  filter: blur(12px) saturate(1.55) contrast(1.15);
-  animation: purplePlasmaDrift 24s ease-in-out infinite alternate;
-}
-
-.black-hole body::before {
-  background:
-    radial-gradient(ellipse at 50% 50%, #000 0 13%, transparent 13.5% 19%, rgba(255, 248, 226, 0.98) 19.5% 20.5%, rgba(255, 147, 55, 0.98) 21% 23%, rgba(151, 48, 255, 0.9) 24% 27%, transparent 28% 34%),
-    repeating-conic-gradient(from 8deg at 50% 50%, transparent 0 7deg, rgba(255, 206, 116, 0.8) 8deg 9deg, transparent 10deg 17deg),
-    radial-gradient(ellipse at 50% 50%, transparent 0 34%, rgba(92, 37, 160, 0.45) 42%, transparent 63%),
-    #010106;
-  filter: blur(2px) saturate(1.5) contrast(1.2);
-  animation: blackHoleSpin 38s linear infinite;
-}
-
-.purple-plasma body::after,
-.black-hole body::after {
-  content: '';
-  position: fixed;
-  pointer-events: none;
-  z-index: 0;
+    linear-gradient(rgba(20, 4, 40, 0.28), rgba(10, 2, 24, 0.42)),
+    url('{{route}}{{/assets/img/bg/purple-plasma.webp}}') center / cover no-repeat,
+    linear-gradient(118deg, #070013, #260347 42%, #0c0119 68%, #22033f);
+  filter: saturate(1.25) contrast(1.08) brightness(0.94);
+  animation: kb-plasma 30s ease-in-out infinite alternate;
 }
 
 .purple-plasma body::after {
-  inset: 0;
+  inset: -8%;
   background:
-    radial-gradient(ellipse at 15% 70%, rgba(255, 104, 241, 0.68), transparent 8%),
-    radial-gradient(ellipse at 78% 32%, rgba(110, 133, 255, 0.56), transparent 9%),
-    repeating-linear-gradient(112deg, transparent 0 9%, rgba(229, 90, 255, 0.16) 10% 10.3%, transparent 11% 18%);
-  filter: blur(8px);
+    radial-gradient(ellipse 12% 8% at 16% 68%, rgba(255, 140, 250, 0.75), transparent 70%),
+    radial-gradient(ellipse 12% 9% at 79% 30%, rgba(130, 150, 255, 0.6), transparent 70%),
+    repeating-linear-gradient(115deg, transparent 0 9px, rgba(235, 120, 255, 0.14) 10px 11px, transparent 12px 22px),
+    repeating-linear-gradient(28deg, transparent 0 14px, rgba(150, 120, 255, 0.1) 15px 16px, transparent 17px 30px);
+  filter: blur(7px);
   mix-blend-mode: screen;
-  animation: plasmaFilaments 12s ease-in-out infinite alternate;
+  animation: plasma-filament 11s ease-in-out infinite alternate;
+}
+
+/* ----- Black hole: real accretion-disk photo, slow push-in ----- */
+.black-hole body::before {
+  background:
+    linear-gradient(rgba(2, 2, 10, 0.22), rgba(1, 1, 8, 0.4)),
+    url('{{route}}{{/assets/img/bg/black-hole.webp}}') center 42% / cover no-repeat,
+    linear-gradient(#000005, #04040e 60%, #010106);
+  filter: saturate(1.2) contrast(1.1) brightness(0.96);
+  animation: kb-hole 36s ease-in-out infinite alternate;
 }
 
 .black-hole body::after {
-  inset: 20% 12%;
-  border-radius: 50%;
-  background: radial-gradient(circle, #000 0 17%, transparent 18% 30%, rgba(255, 255, 255, 0.9) 31% 32%, rgba(255, 115, 36, 0.7) 33% 37%, transparent 44%);
-  filter: blur(3px) saturate(1.5);
-  transform: perspective(900px) rotateX(66deg);
-  animation: blackHolePulse 7s ease-in-out infinite alternate;
+  inset: 6% 4%;
+  background:
+    radial-gradient(ellipse 30% 22% at 50% 46%, transparent 0 55%, rgba(255, 255, 255, 0.5) 57%, rgba(255, 150, 80, 0.32) 60%, transparent 66%),
+    radial-gradient(ellipse 80% 46% at 50% 90%, rgba(90, 60, 180, 0.16), transparent 65%);
+  filter: blur(3px) saturate(1.4);
+  mix-blend-mode: screen;
+  animation: bh-breathe 8s ease-in-out infinite alternate;
 }
 
-@keyframes plasmaFilaments {
-  from { transform: translate3d(-2%, 2%, 0) skewX(-2deg); opacity: 0.65; }
-  to { transform: translate3d(2%, -2%, 0) skewX(2deg); opacity: 1; }
+/* ----- Galaxy: real elliptical-galaxy photo, ultra-slow chill zoom ----- */
+.galaxy body::before {
+  background:
+    linear-gradient(rgba(5, 7, 15, 0.12), rgba(4, 5, 12, 0.3)),
+    url('{{route}}{{/assets/img/bg/galaxy.webp}}') center 40% / cover no-repeat,
+    linear-gradient(#04060d, #0a0f22 55%, #05070f);
+  filter: saturate(1.25) contrast(1.1) brightness(1.06);
+  animation: kb-galaxy 60s ease-in-out infinite alternate;
 }
 
-@keyframes blackHolePulse {
-  from { transform: perspective(900px) rotateX(66deg) scale(0.96); opacity: 0.68; }
-  to { transform: perspective(900px) rotateX(66deg) scale(1.04); opacity: 1; }
+.galaxy body::after {
+  inset: 0;
+  background:
+    radial-gradient(circle at 8% 22%, rgba(255, 255, 255, 0.7), transparent 3px),
+    radial-gradient(circle at 22% 72%, rgba(200, 210, 255, 0.6), transparent 2.5px),
+    radial-gradient(circle at 68% 12%, rgba(255, 255, 255, 0.65), transparent 3px),
+    radial-gradient(circle at 88% 66%, rgba(255, 200, 230, 0.55), transparent 2.5px),
+    radial-gradient(circle at 45% 88%, rgba(255, 255, 255, 0.5), transparent 2px),
+    radial-gradient(ellipse 60% 40% at 50% 44%, rgba(168, 147, 245, 0.12), transparent 65%);
+  filter: blur(0.6px);
+  mix-blend-mode: screen;
+  animation: star-twinkle 5.5s ease-in-out infinite alternate;
+}
+
+/* ----- Midnight / Aurora: barely-there clean gradients (calm) ----- */
+.midnight body::before {
+  background:
+    radial-gradient(ellipse 70% 46% at 50% 0%, rgba(76, 141, 214, 0.16), transparent 65%),
+    radial-gradient(ellipse 60% 40% at 85% 100%, rgba(60, 110, 180, 0.1), transparent 65%),
+    linear-gradient(#080d18, #0a1224 60%, #080d18);
+}
+.aurora body::before {
+  background:
+    radial-gradient(ellipse 70% 46% at 50% 0%, rgba(63, 193, 176, 0.14), transparent 65%),
+    radial-gradient(ellipse 60% 40% at 12% 100%, rgba(80, 180, 170, 0.1), transparent 65%),
+    linear-gradient(#061417, #0a2226 60%, #061417);
+}
+.midnight body::after,
+.aurora body::after {
+  display: none;
+}
+
+/* ============ Keyframes (transform / opacity only) ============ */
+@keyframes kb-plasma {
+  from { transform: translate3d(-2%, 1.5%, 0) scale(1.06); }
+  to { transform: translate3d(2%, -1.5%, 0) scale(1.16); }
+}
+@keyframes kb-hole {
+  from { transform: translate3d(-1.2%, 0.8%, 0) scale(1.05); }
+  to { transform: translate3d(1.2%, -0.8%, 0) scale(1.14); }
+}
+@keyframes kb-galaxy {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.18); }
+}
+@keyframes plasma-filament {
+  from { transform: translate3d(-1.6%, 1.4%, 0) skewX(-1.6deg); opacity: 0.7; }
+  to { transform: translate3d(1.6%, -1.4%, 0) skewX(1.6deg); opacity: 1; }
+}
+@keyframes bh-breathe {
+  from { opacity: 0.7; transform: scale(0.985); }
+  to { opacity: 1; transform: scale(1.015); }
+}
+@keyframes star-twinkle {
+  from { opacity: 0.55; }
+  to { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .purple-plasma body::before,
   .purple-plasma body::after,
   .black-hole body::before,
-  .black-hole body::after {
-    animation-play-state: paused;
+  .black-hole body::after,
+  .galaxy body::before,
+  .galaxy body::after {
+    animation: none;
   }
 }
+
 
 /* -----------------------------------------------
 /* HU Page Layout / General Styling
@@ -718,9 +831,17 @@ details[open] summary {
 .logo {
   width: 70px;
   height: 70px;
-  background-image: var(--logo-img, url('{{route}}{{/assets/img/logo.webp}}'));
+  background-image: var(--logo-img, url('{{route}}{{assets/ico/InvisibleIcon.png}}'));
   background-size: contain;
   background-repeat: no-repeat;
+  border-radius: 18px;
+  filter: drop-shadow(0 0 10px rgba(136, 192, 208, 0.45));
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.brand-logo-container:hover .logo {
+  filter: drop-shadow(0 0 18px var(--glowshadow1, #88c0d0));
+  transform: scale(1.05) rotate(-2deg);
 }
 
 .brand-logo-container > i {
@@ -1344,10 +1465,11 @@ input[type='text'] {
 .theme-swatch-dark { color: #88c0d0; background: #0d1117; }
 .theme-swatch-light { color: #bf616a; background: #eceff4; }
 .theme-swatch-nord { color: #8fbcbb; background: #1d232a; }
-.theme-swatch-amethyst { color: #d49cff; background: linear-gradient(90deg, #120c1d, #a953e8); }
-.theme-swatch-crystal { color: #8fe5e1; background: linear-gradient(90deg, #07151b, #62d1d4); }
-.theme-swatch-plasma { color: #ff72d2; background: linear-gradient(90deg, #10031d, #c329cf); }
-.theme-swatch-hole { color: #ff916e; background: radial-gradient(circle, #000 30%, #ff916e 34%, #7131b6 70%); }
+.theme-swatch-midnight { color: #6cb8e8; background: linear-gradient(135deg, #080d18, #2c425f); }
+.theme-swatch-aurora { color: #6fd8c8; background: linear-gradient(135deg, #061417, #2a6b74); }
+.theme-swatch-plasma { color: #ff72d2; background: url('{{route}}{{/assets/img/bg/purple-plasma.webp}}') center / cover; }
+.theme-swatch-hole { color: #a9c6ff; background: url('{{route}}{{/assets/img/bg/black-hole.webp}}') center / cover; }
+.theme-swatch-galaxy { color: #a893f5; background: url('{{route}}{{/assets/img/bg/galaxy.webp}}') center / cover; }
 
 .bookmarks-list {
   list-style: none;
@@ -1781,7 +1903,19 @@ input[type='text'] {
 
 @media (max-width: 800px) {
   .omnibar {
-    display: none;
+    left: 8px;
+    right: 8px;
+    top: 8px;
+    width: auto;
+    padding: 8px 10px;
+    gap: 2px;
+  }
+  .omnibar #search-input {
+    font-size: 0.9rem;
+    padding: 7px 10px;
+  }
+  .omnibar button {
+    padding: 5px 7px;
   }
 }
 
@@ -3157,3 +3291,156 @@ input[type='text'] {
     font-size: 1.625em;
   }
 }
+
+/* ===============================================================
+   v7.1 Sleek Glow UI overhaul — clean, glassy, calm glow.
+   Overrides earlier rules (later in cascade wins).
+   =============================================================== */
+
+#header {
+  background: color-mix(in srgb, var(--nord0) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid color-mix(in srgb, var(--glowshadow1, #88c0d0) 35%, transparent);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 24px color-mix(in srgb, var(--glowshadow1, #88c0d0) 12%, transparent);
+}
+
+#banner {
+  background: color-mix(in srgb, var(--nord0m1) 78%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.home-text h1 > span,
+.box-text-container > h1,
+.splashstrokeheader {
+  background: linear-gradient(100deg, var(--glowshadow1, #ff5861), var(--glowshadow2, #ff8f9d) 55%, var(--glowshadow1, #ff5861));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sleek-sheen 7s linear infinite;
+  filter: drop-shadow(0 0 22px color-mix(in srgb, var(--glowshadow1, #ff5861) 35%, transparent));
+}
+@keyframes sleek-sheen {
+  to { background-position: 200% center; }
+}
+
+.homebutton,
+.fancybutton,
+.box-button,
+.pr-button,
+.cloakform input[type='submit'],
+.cloakform input[type='button'] {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--glowshadow1, #88c0d0) 55%, rgba(255,255,255,0.2));
+  background: linear-gradient(160deg, color-mix(in srgb, var(--nord0m2) 88%, transparent), color-mix(in srgb, var(--nord0) 92%, transparent));
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 6px 24px rgba(0,0,0,0.35), 0 0 18px color-mix(in srgb, var(--glowshadow1, #88c0d0) 18%, transparent);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+.homebutton::before,
+.fancybutton::before,
+.box-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.14) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+.homebutton:hover,
+.fancybutton:hover,
+.box-button:hover,
+.pr-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: var(--glowshadow1, #88c0d0);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 10px 32px rgba(0,0,0,0.4), 0 0 28px var(--glowshadow1, #88c0d0), 0 0 64px color-mix(in srgb, var(--glowshadow2, #5e81ac) 60%, transparent);
+  animation: glowshadow 2.4s ease-in-out infinite;
+}
+.homebutton:hover::before,
+.fancybutton:hover::before,
+.box-button:hover::before {
+  transform: translateX(120%);
+}
+
+.box-card,
+.box-hero,
+.hero-grid-container {
+  border: 1px solid color-mix(in srgb, var(--glowshadow1, #88c0d0) 28%, rgba(255,255,255,0.12));
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06), 0 0 32px color-mix(in srgb, var(--glowshadow1, #88c0d0) 10%, transparent);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.box-card:hover,
+.box-hero:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--glowshadow1, #88c0d0) 60%, white 10%);
+  box-shadow: 0 18px 56px rgba(0,0,0,0.45), 0 0 40px color-mix(in srgb, var(--glowshadow1, #88c0d0) 25%, transparent);
+}
+
+.image-container {
+  border: 1px solid color-mix(in srgb, var(--glowshadow1, #ff9192) 50%, transparent);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--glowshadow1, #ff9192) 20%, transparent);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.image-container:hover {
+  transform: translateY(-50%) scale(1.03);
+  box-shadow: 0 0 36px var(--glowshadow1, #ff9192);
+}
+
+.glist > a {
+  background: color-mix(in srgb, var(--nord0m1) 80%, transparent);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+}
+.glist > a:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: var(--glowshadow1, #88c0d0);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 26px var(--glowshadow1, #88c0d0);
+}
+.glist > a h3 {
+  text-shadow: 0 0 14px color-mix(in srgb, var(--glowshadow2, #ff5861) 55%, transparent);
+}
+
+.omnibar,
+.omnibar-s {
+  backdrop-filter: blur(14px) saturate(1.25);
+  border: 1px solid color-mix(in srgb, var(--glowshadow1, #ff9193) 45%, transparent) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 22px color-mix(in srgb, var(--glowshadow1, #ff9193) 22%, transparent);
+}
+.omnibar #search-input:focus,
+.pr-form input[type='text']:focus {
+  border-color: var(--glowshadow1, #88c0d0);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--glowshadow1, #88c0d0) 35%, transparent), 0 0 24px var(--glowshadow1, #88c0d0);
+}
+
+.navbar-1 > li > a.line::after {
+  background: linear-gradient(90deg, var(--glowshadow1, #ff5861), var(--glowshadow2, #ff8f9d));
+  box-shadow: 0 0 12px var(--glowshadow1, #ff5861);
+}
+
+.settings-content {
+  box-shadow: 0 24px 80px rgba(0,0,0,0.55), 0 0 48px color-mix(in srgb, var(--glowshadow1, #88c0d0) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--glowshadow1, #88c0d0) 35%, rgba(255,255,255,0.12));
+}
+.cseltitle-main {
+  text-shadow: 0 0 18px color-mix(in srgb, var(--glowshadow1, #ff5861) 50%, transparent);
+}
+.footersocials a {
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+.footersocials a:hover {
+  transform: translateY(-2px);
+  border-color: var(--glowshadow1, #88c0d0);
+  box-shadow: 0 0 18px var(--glowshadow1, #88c0d0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-text h1 > span,
+  .box-text-container > h1,
+  .splashstrokeheader {
+    animation: none;
+  }
+}
+
