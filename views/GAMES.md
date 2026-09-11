@@ -1,10 +1,8 @@
 # Games Information for Self-Hosting
 
-### All respective games for this project have been moved to https://github.com/QuiteAFancyEmerald/HU-Archive
+The games archive is restored under `./views/archive/` from the current HU Archive release.
+Games are available in `./views/archive/g/`, with supporting files in `./views/archive/gfiles/`.
 
-- Simply download the latest release and unzip in a folder named "archive"; full path will be  `./views/archive/[RESPECTIVE FILES HERE]`
+The source archive is maintained at https://github.com/QuiteAFancyEmerald/HU-Archive.
 
-### For inquires or takedowns simply contact via d9tcv6vgx@mozmail.com
-
-## Update: Games are no longer supported on this project. Check out Truffled if you want an Unblocked Games site. 
-https://truffled.lol
+For inquiries or takedowns, contact d9tcv6vgx@mozmail.com.
