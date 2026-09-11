@@ -22,7 +22,7 @@ import { existsSync, unlinkSync } from 'node:fs';
 console.log(serverUrl);
 
 // Wisp Configuration: Refer to the documentation at https://www.npmjs.com/package/mrrowisp
-
+const isVercel = process.env.VERCEL === '1';
 const wisp = new Mrrowisp({
   port: 6001,
   logLevel: 'none',
@@ -54,11 +54,6 @@ const wisp = new Mrrowisp({
   connectionWindowSeconds: 10,
   tcpBufferSize: 458752,
   bufferRemainingLength: 458752,
-  tcpNoDelay: true,
-  maxMessageSize: 28 * 1024 * 1024,
-
-  passwordAuth: false,
-
   floodProtection: {
     enabled: true,
     maxConnectsPerSourceIPPerSecond: 60,
@@ -100,8 +95,8 @@ const wisp = new Mrrowisp({
   },
 });
 
-// Modify for parallel instances
-wisp.start(1);
+// Modify for parallel instances. Vercel manages the function listener itself.
+if (!isVercel) wisp.start(1);
 
 // The server will check for the existence of this file when a shutdown is requested.
 // The shutdown script in run-command.js will temporarily produce this file.
@@ -116,7 +111,7 @@ const serverFactory = (handler) => {
     .on('upgrade', (req, socket, head) => {
       if (req.url.endsWith(getAltPrefix('wisp', serverUrl.pathname)))
         wisp.route(req, socket, head);
-    });
+        });
 };
 
 // Set logger to true for logs.
@@ -343,6 +338,17 @@ app.addHook('onSend', (request, reply, payload, done) => {
   done(null, payload);
 });
 
+export default app;
+
+if (!isVercel) {
+  app.listen({ port: serverUrl.port, host: serverUrl.hostname });
+  console.log(`Invisible is listening on port ${serverUrl.port}.`);
+  console.log(`When hosting with a reverse proxy please ensure you are using NGINX only.\nCaddy and Apache have security risks due to mrrowisp and loopbacks. Please configure them correctly.\nNGINX is recommended and used in production. Ports are whitelisted and security is maintained.`);
+  if (config.disguiseFiles)
+    console.log(
+      'disguiseFiles is enabled. Visit src/routes.mjs to see the entry point, listed within the pages variable.'
+    );
+}
 app.listen({ port: serverUrl.port, host: serverUrl.hostname });
 console.log(`Invisible is listening on port ${serverUrl.port}.`);
 console.log(`When hosting with a reverse proxy please ensure you are using NGINX only.\nCaddy and Apache have security risks due to mrrowisp and loopbacks. Please configure them correctly.\nNGINX is recommended and used for production. Ports are whitelisted and security is maintained with NGINX only.`);
