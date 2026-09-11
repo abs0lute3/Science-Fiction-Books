@@ -138,6 +138,7 @@ const storageId = '{{hu-lts}}-storage',
       'Inbox - Gmail \n https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico',
   }),
   defaultTheme = 'dark',
+  themeNames = ['light', 'nord', 'amethyst', 'crystal', 'purple-plasma', 'black-hole'],
   // Choose the default transport mode, for proxying, based on the browser.
   // Firefox is not supported by epoxy yet, which is why this is implemented.
   defaultMode = '{{epoxy}}',
@@ -307,17 +308,15 @@ if (document.getElementById('csel')) {
 
   attachClassEventListener('theme-list', 'change', (e) => {
     if (e.target.checked) {
-      let themeList = e.target.closest('.theme-list');
-      if (
-        !themeList.querySelector('input:checked') ||
-        e.target.value === defaultTheme
-      ) {
-        const theme = readStorage('Theme');
-        if (theme) document.documentElement.classList.toggle(theme, false);
+      const themeList = e.target.closest('.theme-list');
+      themeNames.forEach((theme) =>
+        document.documentElement.classList.remove(theme)
+      );
+      if (e.target.value === defaultTheme) {
         removeStorage('Theme');
       } else {
         setStorage('Theme', e.target.value);
-        document.documentElement.classList.toggle(e.target.value, true);
+        document.documentElement.classList.add(e.target.value);
       }
       (async () => {
         const shouldLoad = await new Promise((resolve) => {

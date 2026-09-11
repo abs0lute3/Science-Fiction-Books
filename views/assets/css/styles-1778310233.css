@@ -307,19 +307,19 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
 
 @keyframes purplePlasmaDrift {
   from {
-    transform: rotate(0deg) scale(1.15);
+    transform: translate3d(-3%, 2%, 0) scale(1.05) rotate(-2deg);
   }
   to {
-    transform: rotate(360deg) scale(1.15);
+    transform: translate3d(3%, -2%, 0) scale(1.12) rotate(2deg);
   }
 }
 
 @keyframes blackHoleSpin {
   from {
-    transform: rotate(0deg) scale(1.1);
+    transform: perspective(900px) rotateX(66deg) rotateZ(-4deg) scale(1.08);
   }
   to {
-    transform: rotate(360deg) scale(1.1);
+    transform: perspective(900px) rotateX(66deg) rotateZ(356deg) scale(1.08);
   }
 }
 
@@ -329,7 +329,7 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
   position: fixed;
   inset: -12%;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
   background-repeat: no-repeat;
 }
 
@@ -342,6 +342,16 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
   background-color: transparent;
 }
 
+.purple-plasma #header,
+.purple-plasma #mainbody,
+.purple-plasma #footer,
+.black-hole #header,
+.black-hole #mainbody,
+.black-hole #footer {
+  position: relative;
+  z-index: 1;
+}
+
 .purple-plasma body::before {
   background:
     radial-gradient(ellipse at 17% 56%, rgba(234, 105, 255, 0.94), transparent 13%),
@@ -350,7 +360,7 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
     repeating-conic-gradient(from 20deg at 45% 52%, transparent 0 8deg, rgba(160, 58, 255, 0.44) 9deg 10deg, transparent 11deg 18deg),
     linear-gradient(115deg, #08000f 0%, #28004b 40%, #0d001b 70%, #210044 100%);
   filter: blur(12px) saturate(1.55) contrast(1.15);
-  animation: purplePlasmaDrift 42s linear infinite;
+  animation: purplePlasmaDrift 24s ease-in-out infinite alternate;
 }
 
 .black-hole body::before {
@@ -360,12 +370,52 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
     radial-gradient(ellipse at 50% 50%, transparent 0 34%, rgba(92, 37, 160, 0.45) 42%, transparent 63%),
     #010106;
   filter: blur(2px) saturate(1.5) contrast(1.2);
-  animation: blackHoleSpin 58s linear infinite;
+  animation: blackHoleSpin 38s linear infinite;
+}
+
+.purple-plasma body::after,
+.black-hole body::after {
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.purple-plasma body::after {
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 70%, rgba(255, 104, 241, 0.68), transparent 8%),
+    radial-gradient(ellipse at 78% 32%, rgba(110, 133, 255, 0.56), transparent 9%),
+    repeating-linear-gradient(112deg, transparent 0 9%, rgba(229, 90, 255, 0.16) 10% 10.3%, transparent 11% 18%);
+  filter: blur(8px);
+  mix-blend-mode: screen;
+  animation: plasmaFilaments 12s ease-in-out infinite alternate;
+}
+
+.black-hole body::after {
+  inset: 20% 12%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000 0 17%, transparent 18% 30%, rgba(255, 255, 255, 0.9) 31% 32%, rgba(255, 115, 36, 0.7) 33% 37%, transparent 44%);
+  filter: blur(3px) saturate(1.5);
+  transform: perspective(900px) rotateX(66deg);
+  animation: blackHolePulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes plasmaFilaments {
+  from { transform: translate3d(-2%, 2%, 0) skewX(-2deg); opacity: 0.65; }
+  to { transform: translate3d(2%, -2%, 0) skewX(2deg); opacity: 1; }
+}
+
+@keyframes blackHolePulse {
+  from { transform: perspective(900px) rotateX(66deg) scale(0.96); opacity: 0.68; }
+  to { transform: perspective(900px) rotateX(66deg) scale(1.04); opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .purple-plasma body::before,
-  .black-hole body::before {
+  .purple-plasma body::after,
+  .black-hole body::before,
+  .black-hole body::after {
     animation-play-state: paused;
   }
 }

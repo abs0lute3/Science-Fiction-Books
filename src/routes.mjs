@@ -39,6 +39,7 @@ let pages = {
   default: config.disguiseFiles ? 'login' : 'index',
   index: 'index.html',
   'manifest.json': 'manifest.json',
+  games: 'pages/misc/games.html',
 
   /* Users must visit this route if disguiseFiles is enabled. The page loader only
    * requests the site's contents if it has a local key, which is given by this page.

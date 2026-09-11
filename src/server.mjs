@@ -168,6 +168,10 @@ if (existsSync(gamesRoot))
     prefix: serverUrl.pathname + 'games/',
     decorateReply: false,
   });
+else
+  app.get([serverUrl.pathname + 'games/', serverUrl.pathname + 'games'], (req, reply) =>
+    reply.type('text/html').send(tryReadFile('../views/dist/pages/misc/games.html', import.meta.url))
+  );
 
 ['sw.js', 'sw-blacklist.js'].forEach((swFile) => {
   const distName = flatAltPaths['files/' + swFile] || swFile;
@@ -215,7 +219,7 @@ if (config.disguiseFiles) {
       'baremux',
       'wisp',
     ].map((dir) => getAltPrefix(dir, serverUrl.pathname).slice(1, -1)),
-    exemptPages = ['login', 'test-shutdown', 'favicon.ico'];
+    exemptPages = ['login', 'test-shutdown', 'favicon.ico', 'games', 'games/'];
   for (const [key, value] of Object.entries(externalPages))
     if ('string' === typeof value) exemptPages.push(key);
     else exemptDirs.push(key);
