@@ -8,6 +8,13 @@
 // attached to the global scope.
 (() => {
 
+const buildLabel =
+  document.getElementById('modded-build-label') ||
+  document.createElement('div');
+buildLabel.id = 'modded-build-label';
+buildLabel.textContent = 'Modded InvisiProxy v.1.6.8 | Invisible by abs0lute)';
+if (!buildLabel.parentElement) document.body.appendChild(buildLabel);
+
 /* GENERAL URL HANDLERS */
 
 // To be defined after the document has fully loaded.

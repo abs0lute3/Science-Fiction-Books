@@ -1265,6 +1265,67 @@ input[type='text'] {
   border-radius: 50%;
 }
 
+#modded-build-label {
+  position: fixed;
+  left: 12px;
+  bottom: 10px;
+  z-index: 20;
+  color: var(--nord4);
+  background: rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  padding: 5px 8px;
+  font: 11px 'Source Code Pro', monospace;
+  letter-spacing: 0;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+}
+
+.theme-swatch {
+  display: inline-block;
+  width: 34px;
+  height: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+  border-radius: 3px;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.theme-swatch-dark { color: #88c0d0; background: #0d1117; }
+.theme-swatch-light { color: #bf616a; background: #eceff4; }
+.theme-swatch-nord { color: #8fbcbb; background: #1d232a; }
+.theme-swatch-amethyst { color: #d49cff; background: linear-gradient(90deg, #120c1d, #a953e8); }
+.theme-swatch-crystal { color: #8fe5e1; background: linear-gradient(90deg, #07151b, #62d1d4); }
+.theme-swatch-plasma { color: #ff72d2; background: linear-gradient(90deg, #10031d, #c329cf); }
+.theme-swatch-hole { color: #ff916e; background: radial-gradient(circle, #000 30%, #ff916e 34%, #7131b6 70%); }
+
+.bookmarks-list {
+  list-style: none;
+  max-height: 180px;
+  overflow-y: auto;
+  margin: 6px 0 12px;
+  padding: 0;
+}
+
+.bookmarks-list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0;
+}
+
+.bookmarks-list a {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bookmarks-list button {
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
 /* -----------------------------------------------
 /* Welcome Screen Content (i.e., Big Bold Words)
 /* ----------------------------------------------- */

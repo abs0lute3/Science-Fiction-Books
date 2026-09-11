@@ -94,31 +94,31 @@
       <p class="cseltitle">Select Theme</p>
       <div class="radio-group theme-list">
         <label>
-          <p>Enable Default (Dark) Theme</p>
+          <p>Enable Default (Dark) Theme <span class="theme-swatch theme-swatch-dark"></span></p>
           <input type="radio" name="theme" value="dark" checked />
         </label>
         <label>
-          <p>Enable Light Theme</p>
+          <p>Enable Light Theme <span class="theme-swatch theme-swatch-light"></span></p>
           <input type="radio" name="theme" value="light" />
         </label>
         <label>
-          <p>Enable Nordish Theme</p>
+          <p>Enable Nordish Theme <span class="theme-swatch theme-swatch-nord"></span></p>
           <input type="radio" name="theme" value="nord" />
         </label>
         <label>
-          <p>Enable Amethyst Theme</p>
+          <p>Enable Amethyst Theme <span class="theme-swatch theme-swatch-amethyst"></span></p>
           <input type="radio" name="theme" value="amethyst" />
         </label>
         <label>
-          <p>Enable Crystal Theme</p>
+          <p>Enable Crystal Theme <span class="theme-swatch theme-swatch-crystal"></span></p>
           <input type="radio" name="theme" value="crystal" />
         </label>
         <label>
-          <p>Enable Purple Plasma Theme</p>
+          <p>Enable Purple Plasma Theme <span class="theme-swatch theme-swatch-plasma"></span></p>
           <input type="radio" name="theme" value="purple-plasma" />
         </label>
         <label>
-          <p>Enable Black Hole Theme</p>
+          <p>Enable Black Hole Theme <span class="theme-swatch theme-swatch-hole"></span></p>
           <input type="radio" name="theme" value="black-hole" />
         </label>
       </div>
@@ -130,6 +130,13 @@
         <option>{{Google}} Drive</option>
         <option>Gmail</option>
       </select>
+      <p class="cseltitle">Bookmarks</p>
+      <form id="bookmark-form" class="cloakform">
+        <input type="text" placeholder="Bookmark name" spellcheck="false" />
+        <input type="url" placeholder="https://example.com" spellcheck="false" />
+        <input type="submit" value="Add" />
+      </form>
+      <ul id="bookmarks-list" class="bookmarks-list"></ul>
       <p class="cseltitle">Experimental Settings</p>
       <div class="radio-group">
         <label>

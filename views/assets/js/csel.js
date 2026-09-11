@@ -239,6 +239,45 @@ if (document.getElementById('csel')) {
     ).split(' \n ');
   });
 
+  const bookmarksList = document.getElementById('bookmarks-list');
+  const renderBookmarks = () => {
+    if (!bookmarksList) return;
+    bookmarksList.replaceChildren();
+    const bookmarks = readStorage('Bookmarks') || [];
+    bookmarks.forEach((bookmark, index) => {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      const remove = document.createElement('button');
+      link.href = bookmark.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = bookmark.name;
+      remove.type = 'button';
+      remove.title = 'Remove bookmark';
+      remove.textContent = '×';
+      remove.addEventListener('click', () => {
+        bookmarks.splice(index, 1);
+        setStorage('Bookmarks', bookmarks);
+        renderBookmarks();
+      });
+      item.append(link, remove);
+      bookmarksList.appendChild(item);
+    });
+  };
+
+  attachEventListener('bookmark-form', 'submit', (e) => {
+    e.preventDefault();
+    const [name, url] = e.target.querySelectorAll('input');
+    if (!name.value || !url.value) return;
+    const bookmarks = readStorage('Bookmarks') || [];
+    bookmarks.push({ name: name.value.trim(), url: url.value.trim() });
+    setStorage('Bookmarks', bookmarks.slice(-30));
+    name.value = '';
+    url.value = '';
+    renderBookmarks();
+  });
+  renderBookmarks();
+
   attachClassEventListener('search-engine-list', 'change', (e) => {
     e.target.value === defaultSearch
       ? removeStorage('SearchEngine')
