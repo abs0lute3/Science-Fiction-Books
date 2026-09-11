@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  invisible:
+    image: quiteafancyemerald/invisiproxy:7.0.2
+    build: .
+    container_name: invisible
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
