@@ -18,8 +18,7 @@ This will be our nonexhaustive todo list for Invisible LTS v7.x.x and above. Rel
 - [x] Improve mobile support (omnibar now compacts instead of disappearing; epoxy stays default on Chromium, libcurl auto-default on Firefox) - done v7.1
 - [ ] Implement sandboxing techniques to prevent new tab leaks
 - [ ] Improve onboarding expierence 
-- [x] Add bookmarks menu (source wise already present pretty much) - done (validation + normalization added v7.1)
-- [ ] Add Chii + ensuring users can access devtools while browsing; or utilize Scramjet playground instead - partial
+- [x] Add bookmarks menu (source wise already present pretty much) - done (validation + normalization ad- [ ] Add Chii + ensuring users can access devtools while browsing; or utilize Scramjet playground instead - partial
 - [ ] Allow for custom SOCK5 proxy layering (HTTP and SOCKS4 scheme as well)
 - [ ] Add selector for default proxy; behavior is upon clicking on logo in omnibox it will direct back to the selected proxy in Settings
 - [x] Update to Scramjet v2.0.67-alpha.2 fixing several regressions - done
