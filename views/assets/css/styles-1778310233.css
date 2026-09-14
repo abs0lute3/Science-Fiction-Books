@@ -137,7 +137,7 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
 
 /* ===============================================================
    Invisible LTS v7.1 — Cinematic theme engine
-   Photo-backed backdrops (views/assets/img/bg/) with slow Ken Burns
+  Animated theme backdrops with slow motion and glow overlays
    motion + tsParticles starfields. Midnight / Aurora are clean,
    calm, professional daily drivers.
    Legacy aliases: amethyst -> midnight, crystal -> aurora.
@@ -411,14 +411,16 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
   z-index: 1;
 }
 
-/* ----- Purple plasma: real nebula photo, slow drift + electric shimmer ----- */
+/* ----- Purple plasma: animated nebula gradients + electric shimmer ----- */
 .purple-plasma body::before {
   background:
-    linear-gradient(rgba(20, 4, 40, 0.28), rgba(10, 2, 24, 0.42)),
-    url('{{route}}{{/assets/img/bg/purple-plasma.webp}}') center / cover no-repeat,
-    linear-gradient(118deg, #070013, #260347 42%, #0c0119 68%, #22033f);
-  filter: saturate(1.25) contrast(1.08) brightness(0.94);
-  animation: kb-plasma 30s ease-in-out infinite alternate;
+    radial-gradient(ellipse at 17% 56%, rgba(234, 105, 255, 0.94), transparent 13%),
+    radial-gradient(ellipse at 82% 37%, rgba(121, 43, 255, 0.92), transparent 18%),
+    radial-gradient(ellipse at 52% 67%, rgba(194, 31, 255, 0.72), transparent 24%),
+    repeating-conic-gradient(from 20deg at 45% 52%, transparent 0 8deg, rgba(160, 58, 255, 0.44) 9deg 10deg, transparent 11deg 18deg),
+    linear-gradient(115deg, #08000f 0%, #28004b 40%, #0d001b 70%, #210044 100%);
+  filter: blur(12px) saturate(1.55) contrast(1.15);
+  animation: purplePlasmaDrift 24s ease-in-out infinite alternate;
 }
 
 .purple-plasma body::after {
@@ -433,14 +435,15 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
   animation: plasma-filament 11s ease-in-out infinite alternate;
 }
 
-/* ----- Black hole: real accretion-disk photo, slow push-in ----- */
+/* ----- Black hole: animated accretion disk and photon ring ----- */
 .black-hole body::before {
   background:
-    linear-gradient(rgba(2, 2, 10, 0.22), rgba(1, 1, 8, 0.4)),
-    url('{{route}}{{/assets/img/bg/black-hole.webp}}') center 42% / cover no-repeat,
-    linear-gradient(#000005, #04040e 60%, #010106);
-  filter: saturate(1.2) contrast(1.1) brightness(0.96);
-  animation: kb-hole 36s ease-in-out infinite alternate;
+    radial-gradient(ellipse at 50% 50%, #000 0 13%, transparent 13.5% 19%, rgba(255, 248, 226, 0.98) 19.5% 20.5%, rgba(255, 147, 55, 0.98) 21% 23%, rgba(151, 48, 255, 0.9) 24% 27%, transparent 28% 34%),
+    repeating-conic-gradient(from 8deg at 50% 50%, transparent 0 7deg, rgba(255, 206, 116, 0.8) 8deg 9deg, transparent 10deg 17deg),
+    radial-gradient(ellipse at 50% 50%, transparent 0 34%, rgba(92, 37, 160, 0.45) 42%, transparent 63%),
+    #010106;
+  filter: blur(2px) saturate(1.5) contrast(1.2);
+  animation: blackHoleSpin 38s linear infinite;
 }
 
 .black-hole body::after {
@@ -453,11 +456,11 @@ see https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/i
   animation: bh-breathe 8s ease-in-out infinite alternate;
 }
 
-/* ----- Galaxy: real elliptical-galaxy photo, ultra-slow chill zoom ----- */
+/* ----- Galaxy: animated starfield gradients ----- */
 .galaxy body::before {
   background:
-    linear-gradient(rgba(5, 7, 15, 0.12), rgba(4, 5, 12, 0.3)),
-    url('{{route}}{{/assets/img/bg/galaxy.webp}}') center 40% / cover no-repeat,
+    repeating-conic-gradient(from 15deg at 50% 45%, transparent 0 12deg, rgba(168, 147, 245, 0.12) 13deg 14deg, transparent 15deg 26deg),
+    radial-gradient(ellipse 60% 40% at 50% 44%, rgba(168, 147, 245, 0.22), transparent 65%),
     linear-gradient(#04060d, #0a0f22 55%, #05070f);
   filter: saturate(1.25) contrast(1.1) brightness(1.06);
   animation: kb-galaxy 60s ease-in-out infinite alternate;
@@ -1467,9 +1470,9 @@ input[type='text'] {
 .theme-swatch-nord { color: #8fbcbb; background: #1d232a; }
 .theme-swatch-midnight { color: #6cb8e8; background: linear-gradient(135deg, #080d18, #2c425f); }
 .theme-swatch-aurora { color: #6fd8c8; background: linear-gradient(135deg, #061417, #2a6b74); }
-.theme-swatch-plasma { color: #ff72d2; background: url('{{route}}{{/assets/img/bg/purple-plasma.webp}}') center / cover; }
-.theme-swatch-hole { color: #a9c6ff; background: url('{{route}}{{/assets/img/bg/black-hole.webp}}') center / cover; }
-.theme-swatch-galaxy { color: #a893f5; background: url('{{route}}{{/assets/img/bg/galaxy.webp}}') center / cover; }
+.theme-swatch-plasma { color: #ff72d2; background: linear-gradient(90deg, #10031d, #c329cf); }
+.theme-swatch-hole { color: #ff916e; background: radial-gradient(circle, #000 30%, #ff916e 34%, #7131b6 70%); }
+.theme-swatch-galaxy { color: #a893f5; background: linear-gradient(90deg, #05070f, #7f6ce0); }
 
 .bookmarks-list {
   list-style: none;
