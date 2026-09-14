@@ -205,6 +205,13 @@
                     for (j = 0; j < nodeList.length; j++)
                       elementCopy.appendChild(recursiveClone(nodeList[j]));
                     if ('script' === nodeName) {
+                      const externalScript =
+                        node.src &&
+                        new URL(node.src, origin).origin !== origin.origin;
+                      if (externalScript) {
+                        elementCopy.async = true;
+                        return elementCopy;
+                      }
                       if (
                         node.async ||
                         'module' === node.type.toLowerCase() ||
@@ -242,6 +249,11 @@
                       }
                       return replacement;
                     } else if (['style', 'link'].includes(nodeName)) {
+                      const externalStylesheet =
+                        nodeName === 'link' &&
+                        node.rel.toLowerCase() === 'stylesheet' &&
+                        new URL(node.href, origin).origin !== origin.origin;
+                      if (externalStylesheet) return elementCopy;
                       if (
                         'link' === nodeName &&
                         !/^stylesheet$/i.test(node.rel)
