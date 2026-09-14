@@ -248,8 +248,15 @@
                       )
                         return elementCopy;
                       else if (node.childNodes.length <= 0) {
-                        elementCopy.addEventListener('load', bodyLoader);
-                        elementCopy.addEventListener('error', bodyLoader);
+                        let resourceFinished = false;
+                        const finishResource = () => {
+                          if (resourceFinished) return;
+                          resourceFinished = true;
+                          bodyLoader();
+                        };
+                        elementCopy.addEventListener('load', finishResource);
+                        elementCopy.addEventListener('error', finishResource);
+                        setTimeout(finishResource, 2500);
                         if ('head' === node.parentElement.tagName.toLowerCase())
                           headScripts++;
                       }
