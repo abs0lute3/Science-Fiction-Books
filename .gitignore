@@ -3,10 +3,8 @@ node_modules
 .vscode
 .gitattributes
 .well-known
-views/archive
 ngrok.exe
 debug.log
 views/dist/*
 src/.shutdown
-views/archive/gfiles/rarch/roms
 .idea

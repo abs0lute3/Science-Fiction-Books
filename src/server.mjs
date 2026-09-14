@@ -156,25 +156,6 @@ app.register(fastifyStatic, {
   });
 });
 
-const gamesRoot = fileURLToPath(
-  new URL('../views/dist/archive/src', import.meta.url)
-);
-if (existsSync(gamesRoot))
-  app.register(fastifyStatic, {
-    root: gamesRoot,
-    prefix: serverUrl.pathname + 'games/',
-    decorateReply: false,
-    cacheControl: true,
-    maxAge: '1y',
-  });
-else {
-  // Note: Fastify runs with ignoreTrailingSlash, so one registration covers
-  // both /games and /games/.
-  app.get(serverUrl.pathname + 'games', (req, reply) =>
-    reply.type('text/html').send(tryReadFile('../views/dist/pages/misc/games.html', import.meta.url))
-  );
-}
-
 ['sw.js', 'sw-blacklist.js'].forEach((swFile) => {
   const distName = flatAltPaths['files/' + swFile] || swFile;
   app.get(serverUrl.pathname + distName, (req, reply) => {
@@ -221,7 +202,7 @@ if (config.disguiseFiles) {
       'baremux',
       'wisp',
     ].map((dir) => getAltPrefix(dir, serverUrl.pathname).slice(1, -1)),
-    exemptPages = ['login', 'test-shutdown', 'favicon.ico', 'games', 'games/'];
+    exemptPages = ['login', 'test-shutdown', 'favicon.ico'];
   for (const [key, value] of Object.entries(externalPages))
     if ('string' === typeof value) exemptPages.push(key);
     else exemptDirs.push(key);
