@@ -12,7 +12,7 @@ const buildLabel =
   document.getElementById('modded-build-label') ||
   document.createElement('div');
 buildLabel.id = 'modded-build-label';
-buildLabel.textContent = 'Modded InvisiProxy v.1.6.8 | Invisible by abs0lute)';
+buildLabel.textContent = 'Invisible LTS v7.1.0 | by abs0lute3';
 if (!buildLabel.parentElement) document.body.appendChild(buildLabel);
 
 /* GENERAL URL HANDLERS */
@@ -300,20 +300,35 @@ const getSearchTemplate = (
   // Like an omnibox, return the results of a search engine if search terms are
   // provided instead of a URL.
   search = (input) => {
+    input = `${input || ''}`.trim().replace(/\s+/g, ' ');
+    if (!input) return getSearchTemplate().replace('%s', '');
+    // Strip wrapping quotes/brackets users often paste from chat apps.
+    input = input.replace(/^["'“”‘’<([]+|["'“”‘’>)\]]+$/g, '').trim();
     try {
       // Return the input if it is already a valid URL.
       // eg: https://example.com, https://example.com/test?q=param
-      return new URL(input) + '';
+      // Only accept http(s) here so `example.com:8080` doesn't misfire.
+      const direct = new URL(input);
+      if (direct.protocol === 'http:' || direct.protocol === 'https:') return direct + '';
     } catch (e) {
       // Continue if it is invalid.
     }
 
     try {
       // Check if the input is valid when http:// is added to the start.
-      // eg: example.com, https://example.com/test?q=param
-      const url = new URL(`http://${input}`);
-      // Return only if the hostname has a TLD or a subdomain.
-      if (url.hostname.indexOf('.') != -1) return url + '';
+      // eg: example.com, youtube.com/watch?v=..., localhost:8080, 1.1.1.1
+      // Reject strings with spaces (search queries) and bare words without
+      // a dot/colon (e.g. `hello` should search, not become http://hello/).
+      if (!/\s/.test(input) && /[.:]/.test(input)) {
+        const url = new URL(`http://${input}`);
+        // Require a TLD dot, a port colon, or localhost/IP to count as a URL.
+        if (
+          url.hostname.indexOf('.') !== -1 ||
+          /:\d+$/.test(input) ||
+          url.hostname === 'localhost'
+        )
+          return url + '';
+      }
     } catch (e) {
       // Continue if it is invalid.
     }
@@ -411,6 +426,22 @@ const preparePage = async () => {
     wikipedia: sjPreset('https://www.wikiwand.com'),
 
   });
+
+  // Expose safe helpers for power users / debugging (no privileged access).
+  try {
+    window.goProx = goProx;
+    window.invisiCloak = Object.freeze({ blank: openBlankCloak, blob: openBlobCloak });
+  } catch {}
+
+  // Quick-cloak keyboard shortcut: Alt+Shift+B opens a blank cloak of this page.
+  try {
+    window.addEventListener('keydown', (ev) => {
+      if (ev.altKey && ev.shiftKey && ev.code === 'KeyB' && ev.isTrusted) {
+        ev.preventDefault();
+        openBlankCloak();
+      }
+    });
+  } catch {}
 
   // Call a function after a given number of service workers are active.
   // Workers are appended as additional arguments to the callback.

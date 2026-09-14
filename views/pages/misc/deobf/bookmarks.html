@@ -23,19 +23,3 @@
     </div>
   </div>
 </div>
-
-    <script>
-
-        window.addEventListener('beforeunload', (event) => {
-
-            // Cancel the event to trigger the standard browser confirmation dialog
-
-            event.preventDefault();
-
-            // Required for older browser compatibility
-
-            event.returnValue = '';
-
-        });
-
-    </script>

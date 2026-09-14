@@ -163,10 +163,13 @@ if (existsSync(gamesRoot))
     prefix: serverUrl.pathname + 'games/',
     decorateReply: false,
   });
-else
-  app.get([serverUrl.pathname + 'games/', serverUrl.pathname + 'games'], (req, reply) =>
+else {
+  // Note: Fastify runs with ignoreTrailingSlash, so one registration covers
+  // both /games and /games/.
+  app.get(serverUrl.pathname + 'games', (req, reply) =>
     reply.type('text/html').send(tryReadFile('../views/dist/pages/misc/games.html', import.meta.url))
   );
+}
 
 ['sw.js', 'sw-blacklist.js'].forEach((swFile) => {
   const distName = flatAltPaths['files/' + swFile] || swFile;
@@ -342,10 +345,3 @@ export default app;
 
 if (!isVercel) {
 }
-app.listen({ port: serverUrl.port, host: serverUrl.hostname });
-console.log(`Invisible is listening on port ${serverUrl.port}.`);
-console.log(`When hosting with a reverse proxy please ensure you are using NGINX only.\nCaddy and Apache have security risks due to mrrowisp and loopbacks. Please configure them correctly.\nNGINX is recommended and used for production. Ports are whitelisted and security is maintained with NGINX only.`);
-if (config.disguiseFiles)
-  console.log(
-    'disguiseFiles is enabled. Visit src/routes.mjs to see the entry point, listed within the pages variable.'
-  );

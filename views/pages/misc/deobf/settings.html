@@ -94,32 +94,36 @@
       <p class="cseltitle">Select Theme</p>
       <div class="radio-group theme-list">
         <label>
-          <p>Enable Default (Dark) Theme <span class="theme-swatch theme-swatch-dark"></span></p>
+          <p>Default (Dark) <span class="theme-swatch theme-swatch-dark"></span></p>
           <input type="radio" name="theme" value="dark" checked />
         </label>
         <label>
-          <p>Enable Light Theme <span class="theme-swatch theme-swatch-light"></span></p>
+          <p>Light <span class="theme-swatch theme-swatch-light"></span></p>
           <input type="radio" name="theme" value="light" />
         </label>
         <label>
-          <p>Enable Nordish Theme <span class="theme-swatch theme-swatch-nord"></span></p>
+          <p>Nord <span class="theme-swatch theme-swatch-nord"></span></p>
           <input type="radio" name="theme" value="nord" />
         </label>
         <label>
-          <p>Enable Amethyst Theme <span class="theme-swatch theme-swatch-amethyst"></span></p>
-          <input type="radio" name="theme" value="amethyst" />
+          <p>Midnight <span class="default-badge">Clean</span> <span class="theme-swatch theme-swatch-midnight"></span></p>
+          <input type="radio" name="theme" value="midnight" />
         </label>
         <label>
-          <p>Enable Crystal Theme <span class="theme-swatch theme-swatch-crystal"></span></p>
-          <input type="radio" name="theme" value="crystal" />
+          <p>Aurora <span class="default-badge">Clean</span> <span class="theme-swatch theme-swatch-aurora"></span></p>
+          <input type="radio" name="theme" value="aurora" />
         </label>
         <label>
-          <p>Enable Purple Plasma Theme <span class="theme-swatch theme-swatch-plasma"></span></p>
+          <p>Purple Plasma <span class="theme-swatch theme-swatch-plasma"></span></p>
           <input type="radio" name="theme" value="purple-plasma" />
         </label>
         <label>
-          <p>Enable Black Hole Theme <span class="theme-swatch theme-swatch-hole"></span></p>
+          <p>Black Hole <span class="theme-swatch theme-swatch-hole"></span></p>
           <input type="radio" name="theme" value="black-hole" />
+        </label>
+        <label>
+          <p>Galaxy <span class="alt-badge">New</span> <span class="theme-swatch theme-swatch-galaxy"></span></p>
+          <input type="radio" name="theme" value="galaxy" />
         </label>
       </div>
       <p class="cseltitle">Icon Presets</p>
@@ -175,18 +179,3 @@
     </div>
   </div>
 </div>
-    <script>
-
-        window.addEventListener('beforeunload', (event) => {
-
-            // Cancel the event to trigger the standard browser confirmation dialog
-
-            event.preventDefault();
-
-            // Required for older browser compatibility
-
-            event.returnValue = '';
-
-        });
-
-    </script>
