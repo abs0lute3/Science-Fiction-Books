@@ -5,5 +5,5 @@ let ready;
 export default async function handler(request, response) {
   ready ||= app.ready();
   await ready;
-  app.server.emit('request', request, response);
+  app.routing(request, response);
 }

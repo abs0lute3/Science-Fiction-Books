@@ -344,4 +344,11 @@ app.addHook('onSend', (request, reply, payload, done) => {
 export default app;
 
 if (!isVercel) {
+  app.listen({ port: serverUrl.port, host: serverUrl.hostname });
+  console.log(`Invisible is listening on port ${serverUrl.port}.`);
+  console.log(`When hosting with a reverse proxy please ensure you are using NGINX only.\nCaddy and Apache have security risks due to mrrowisp and loopbacks. Please configure them correctly.\nNGINX is recommended and used in production. Ports are whitelisted and security is maintained.`);
+  if (config.disguiseFiles)
+    console.log(
+      'disguiseFiles is enabled. Visit src/routes.mjs to see the entry point, listed within the pages variable.'
+    );
 }
