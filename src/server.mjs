@@ -151,6 +151,8 @@ app.register(fastifyStatic, {
     root: fileURLToPath(new URL('../views/dist/' + prefix, import.meta.url)),
     prefix: getAltPrefix(prefix, serverUrl.pathname),
     decorateReply: false,
+    cacheControl: true,
+    maxAge: '1y',
   });
 });
 
@@ -162,6 +164,8 @@ if (existsSync(gamesRoot))
     root: gamesRoot,
     prefix: serverUrl.pathname + 'games/',
     decorateReply: false,
+    cacheControl: true,
+    maxAge: '1y',
   });
 else {
   // Note: Fastify runs with ignoreTrailingSlash, so one registration covers
