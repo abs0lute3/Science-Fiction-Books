@@ -121,7 +121,7 @@ const app = Fastify({
     ignoreTrailingSlash: true,
   },
   logger: false,
-  serverFactory: serverFactory,
+  ...(isVercel ? {} : { serverFactory }),
 });
 
 // Apply Helmet middleware for security.

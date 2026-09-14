@@ -2,13 +2,13 @@
   "buildCommand": "pnpm run build",
   "functions": {
     "api/index.mjs": {
-      "runtime": "nodejs24.x"
+      "runtime": "nodejs22.x"
     }
   },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/api"
+      "destination": "/api/index"
     }
   ]
 }
