@@ -72,8 +72,8 @@
       _window
         .fetch(
           retrieveUrl(
-            destination.pathname.replace(/\/+/g, '/').replace(/\/$/, '') +
-              '.ico'
+            (destination.pathname.replace(/\/+/g, '/').replace(/\/$/, '') ||
+              '/index') + '.ico'
           ),
           { mode: 'same-origin' }
         )
